@@ -1,0 +1,113 @@
+Classes
+1. SaleRecord
+Responsibility: Represents a single sale transaction
+
+Properties:
+
+classId (int)
+boxesSold (int)
+
+
+Methods:
+
+Getters/Setters for properties
+
+
+
+2. ClassSales
+Responsibility: Tracks total sales for a single class
+
+Properties:
+
+classId (int)
+totalBoxes (int)
+
+
+Methods:
+
+AddSale(int boxes)
+GetTotalBoxes()
+GetClassId()
+
+
+
+3. CookieSalesTracker
+Responsibility: Main system to manage all sales and determine winners
+
+Properties:
+
+UnsortedListType<ClassSales> classSalesList
+
+
+Methods:
+
+ProcessSale(int classId, int boxes)
+FindWinners()
+WriteReport()
+
+
+
+CRC Cards
+SaleRecord
+Responsibilities:
+
+Store sale transaction data
+Provide access to sale data
+
+Collaborators:
+
+CookieSalesTracker
+
+ClassSales
+Responsibilities:
+
+Track total sales for a class
+Update sales amounts
+Provide class statistics
+
+Collaborators:
+
+CookieSalesTracker
+UnsortedListType
+
+CookieSalesTracker
+Responsibilities:
+
+Process sales records
+Calculate class totals
+Determine winners
+Generate reports
+
+Collaborators:
+
+SaleRecord
+ClassSales
+UnsortedListType
+
+Algorithm (Pseudo-code)
+CopyMain Program:
+1. Create CookieSalesTracker
+2. While there is input:
+   - Read classId and boxesSold
+   - Process sale through tracker
+3. Generate and write report
+
+ProcessSale(classId, boxes):
+1. Search for existing ClassSales in list
+2. If found:
+   - Update total boxes
+3. If not found:
+   - Create new ClassSales
+   - Add to list
+   - Update total boxes
+
+FindWinners():
+1. Initialize maxBoxes to 0
+2. For each ClassSales in list:
+   - If totalBoxes > maxBoxes:
+     - Clear winners list
+     - Add current class to winners
+     - Update maxBoxes
+   - If totalBoxes == maxBoxes:
+     - Add current class to winners
+3. Return winners list

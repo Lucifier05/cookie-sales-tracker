@@ -1,0 +1,56 @@
+Test Cases
+
+1. Normal Case:
+
+Input:
+Enter class ID and boxes sold (enter -1 for class ID to finish):
+Class ID: 3
+Boxes sold: 23
+Class ID: 4
+Boxes sold: 1
+Class ID: 2
+Boxes sold: 13
+Class ID: 2
+Boxes sold: 7
+Class ID: 4
+Boxes sold: 5
+Class ID: 1
+Boxes sold: 6
+Class ID: 10
+Boxes sold: 16
+Class ID: -1
+
+Expected Output:
+
+Class 3 should win with 23 boxes
+Class 2 should have 20 boxes total (13 + 7)
+Class 4 should have 6 boxes total (1 + 5)
+
+
+2. Tie Case:
+Input:
+1 20
+2 20
+3 15
+-1
+Expected Output:
+
+Classes 1 and 2 should both be listed as winners
+
+
+3.Single Entry Case:
+Input:
+5 10
+-1
+Expected Output:
+
+Class 5 should be the winner with 10 boxes
+
+
+4.Empty List Case:
+Input:
+-1
+(no entries)
+Expected Output:
+
+Should handle gracefully with appropriate message
